@@ -8,29 +8,30 @@ import Favourite from './pages/Favourite';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import About from './pages/About';
-
-import { MovieProvider } from './contexts/MovieContext';
+import LoginModal from './components/LoginModal'; // Add this import
+import { TravelPlaces } from './contexts/MovieContext';
 
 function App() {
   console.log("App Component Loaded!");
   const [count, setCount] = useState(0)
+  const [showLogin, setShowLogin] = useState(false); // Add login state
 
   return (
-   
-    <MovieProvider>
-      <NavBar /> 
+    <TravelPlaces>
+      <NavBar onLoginClick={() => setShowLogin(true)} /> {/* Update NavBar */}
       <main className="main-content">
-       <Routes>
-           <Route path="/" element={<Home />} />
-           <Route path="/Favourite" element={<Favourite/>}/>
-           <Route path="/About" element={<About/>}/>
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Favourite" element={<Favourite/>}/>
+          <Route path="/About" element={<About/>}/>
+        </Routes>
       </main>
       
-    </MovieProvider>
+      {/* Add Login Modal */}
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+    </TravelPlaces>
   );
 }
-
 
 function Text({ display }) {
   return (

@@ -4,7 +4,7 @@ const MovieContext = createContext()
 
 export const useMovieContext = () => useContext(MovieContext)
 
-export const MovieProvider = ({children}) => {
+export const TravelPlaces = ({children}) => {
     const [favorites, setFavorites] = useState([])
 
     useEffect(() => {
