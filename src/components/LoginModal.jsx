@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { FcGoogle } from 'react-icons/fc';
-import { AiFillGithub } from 'react-icons/ai';
+import { AiFillFacebook, AiFillGithub } from 'react-icons/ai';
+// import GoogleLogin from "GoogleLogin"
 // import LoginModal from "../css/login.css"
 
 const Overlay = styled.div`
@@ -167,9 +168,10 @@ const LoginModal = ({ onClose }) => {
         <SocialLogin>
           <SocialButton type="button">
             <FcGoogle size={24} />
+            {/* <GoogleLogin /> */}
           </SocialButton>
           <SocialButton type="button">
-            <AiFillGithub size={24} />
+            <AiFillFacebook size={24} />
           </SocialButton>
         </SocialLogin>
       </ModalContent>
